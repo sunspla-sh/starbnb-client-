@@ -4,23 +4,40 @@
 }
 
 
-/* * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* .hero-container{
+    width: 100px;
+    height: 80px;
+}
+
+.hero-container img{
+    width: 100%;
+} */
+
+
+.hero-container {
+    position: relative;
+    text-align: center;
+    color: white;
   }
 
-.signup-card-container {
-    border: 3px black;
-    max-width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 1rem;
-}  */
+
+  .hero-container img{
+      width: 100%;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+
+
 .planetsContainer {
     display: flex;
     flex-wrap: wrap;
-    
+    margin-top: 40px;
 }
 
 
@@ -63,8 +80,56 @@
    color: black;
 } 
 
+
+/* 
+.planetSingleContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.planetSingleImage{
+    height: 200px; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-left-radius:  10px;
+    border-top-right-radius: 10px;
+
+}
+
+
+.planetSingleCard {
+    border: .5px solid black;
+    /* width: 100px;
+    height: 100px; */
+    /* max-width: 30%;  */
+    /* position: flex center; */
+    /* font: "Montserrat";
+    font-weight: 600;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+    width: 40%;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+
+}   
+
+.planetSinlgeCard a{
+   text-decoration: none;
+   color: black;
+}  */ 
+
+
+
+
+
+
 @media (min-width: 768px) {
     .staysCard {
         width: 20%;
     }
     }
+
+

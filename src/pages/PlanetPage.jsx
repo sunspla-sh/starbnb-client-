@@ -1,7 +1,6 @@
 import {  useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-// import SimpleImageSlider from "react-simple-image-slider";
 import { AuthContext } from "../context/auth.context";
 
 
@@ -36,39 +35,26 @@ function PlanetPage() {
   
     
 
- 
+
     return (
-      <div className="App">
-        <header className="App-header"> </header>
+
+    <div className="App">
+    <header className="App-header"/> 
          
-  
+     
 
         {/* { planet && <p>{ planet.name }</p> } */}
+    
+       
         { planet ? (
-          
-          <>
+       <>
+  
+
         <h1> { planet.name } </h1>
        
 
         <img src={ planet.image }/>
        
-        
-{/* const images = [
-        <img src={ `${planet.image1}` }/>,
-        <img src={ `${planet.image2}` }/>,] */}
-
-
-       
-      {/* <SimpleImageSlider className="imageSlider"
-        width={896}
-        height={504}
-        images={planet.image1 + planet.image2}
-        showBullets={true}
-        showNavs={true}
-        /> */}
-
-          <div>
-            
             <h4>    
             $ {  " " +  + planet.pricePerNight } GCS per night
             </h4>
@@ -97,7 +83,7 @@ function PlanetPage() {
               { " " + planet.population } 
               </p>
 
-              </div>
+            
             { user ? (
                 <Link to={`/booking/create/${planetId}`}>
                 <button type="button"> Book { planet.name } </button>
@@ -107,22 +93,22 @@ function PlanetPage() {
                 <button type="button"> Login to book { planet.name } </button>
                 </Link> 
             )}
+           
+           </> 
               
-
-              </>
          ): <p>loading....</p> }
+        
+ 
+       
+         
+    </div>
+ 
+
   
-  
-      </div>
      
-    );
-  }
+)};
 
 
-
-
-
-
-
+ 
 export default PlanetPage;
 

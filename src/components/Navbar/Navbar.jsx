@@ -13,28 +13,41 @@ function Navbar() {
   
   //  Update the rendering logic to display different content 
   //  depending on the user being logged in or not
+
+
   return (
-    <nav className="navbar">
-    
+  <>
    
-    <div className="logo">
+
+    <nav className="navbar navbar-expand-md navbar-light" style={{height:'100px', backgroundColor: 'white'}}>
+    <div class="container-fluid">
+    <div className="navbar-brand">
     <Link to="/">
-    <img src={ logo }/>
+    <img src={ logo } width="240" height="80"/>
     </Link>
     </div>
 
-    <div className="navbar-button">
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+       <span className="navbar-toggler-icon"></span>
+     </button>
+{/* 
+    <div className="navbar-button"> */}
+    <div className="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+    <ul className="navbar-nav ml-auto  mb-2 mb-md-0">
 
+    
+
+    <li className="nav-item">
     <Link to="/">
      <button>Home</button>
      </Link>
- 
- 
-      {isLoggedIn && (
+    </li>
+    {isLoggedIn && (
         <>
           <Link to="/mystays">
             <button>My Stays</button>
-          </Link>        
+          </Link>       
+
           {/* <Link to="/user">
             <button>Profile</button>
           </Link>   */}
@@ -49,15 +62,57 @@ function Navbar() {
           <Link to="/login"> <button>Login</button> </Link>
     
         </>
-        
+
       )}
-      </div>
+
+      
+       </ul>
        
-
-      { user ? <p> Bright Suns, {user.name}</p> : <p> Bright Suns, Rayt! </p> }
-
-    </nav>
-  );
-}
+       </div>
+   </div>
+  </nav> 
  
+       
+  
+      {/* {isLoggedIn && (
+        <>
+          <Link to="/mystays">
+            <button>My Stays</button>
+          </Link>        
+          <Link to="/user">
+            <button>Profile</button>
+          </Link>  
+
+          <button onClick={logOutUser}>Logout</button>
+        </>
+      )}
+ 
+      {!isLoggedIn && (
+        <>
+          <Link to="/signup"> <button>Sign Up</button> </Link>
+          <Link to="/login"> <button>Login</button> </Link>
+    
+        </>
+        
+      )} */}
+
+<div className="welcome">
+                 
+ { user ? <p> Bright Suns, {user.name}</p> : <p> Bright Suns, Rayt! </p> }
+     
+ </div>  
+    
+      </>
+
+
+
+  );
+  
+}
+
+
+
+
+
+
 export default Navbar;
