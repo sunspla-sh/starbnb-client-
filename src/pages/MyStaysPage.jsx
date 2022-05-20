@@ -22,7 +22,7 @@ function MyStaysPage(){
     
     useEffect(()=> {
   
-    axios.get('http://localhost:5005/api/stays',{ 
+    axios.get(`${process.env.REACT_APP_API_URL}/api/stays`,{ 
         headers: {
             authorization: "Bearer " + authToken
         }
@@ -40,7 +40,9 @@ function MyStaysPage(){
   
 return(
 <>
-<h3> MY STAYS </h3>
+<h3 style={{
+  textAlign: 'center'
+}}> MY STAYS </h3>
 
 <div className="staysContainer">
 {stays.map((stay)=>{
@@ -59,18 +61,18 @@ return (
                </p>
 
                <p> 
-                {new Date(stay.startDate).toDateString()}
+                Start Date: {new Date(stay.startDate).toDateString()}
               </p>
 
               <p>
-                {new Date(stay.endDate).toDateString()}
+                End Date: {new Date(stay.endDate).toDateString()}
               </p>
 
               <p>
-                { calculateNights(new Date(stay.startDate), new Date(stay.endDate)) }
+                Number of Nights: { calculateNights(new Date(stay.startDate), new Date(stay.endDate)) }
               </p>
                <p>
-               $ {stay.totalPrice} GCS
+               Total: $ {stay.totalPrice} GCS
               </p>
 
     </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
  
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL;
  
  
 function SignupPage(props) {
@@ -39,11 +39,19 @@ function SignupPage(props) {
 
 
   return (
-    <div className="SignupPage">
+    <div className="SignupPage" style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }}>
       <h1>Sign Up</h1>
 
 
-      <form onSubmit={handleSignupSubmit}>
+      <form onSubmit={handleSignupSubmit} style={{
+      display: 'flex',
+      flexDirection: 'column',
+      width: '40%'
+    }}>
         <label>Email:</label>
         <input 
           type="email"

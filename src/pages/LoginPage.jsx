@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
  
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL;
  
  
 function LoginPage(props) {
@@ -44,10 +44,18 @@ function LoginPage(props) {
 
 
   return (
-    <div className="LoginPage">
+    <div className="LoginPage" style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }}>
       <h1>Login</h1>
  
-      <form onSubmit={handleLoginSubmit}>
+      <form onSubmit={handleLoginSubmit}  style={{
+      display: 'flex',
+      flexDirection: 'column',
+      width: '40%'
+    }}>
         <label>Email:</label>
         <input 
           type="email"

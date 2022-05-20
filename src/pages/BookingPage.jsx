@@ -30,7 +30,7 @@ function BookingPage() {
 
   useEffect(()=> {
 
-  axios.get(`http://localhost:5005/api/planet/${planetId}`)
+  axios.get(`${process.env.REACT_APP_API_URL}/api/planet/${planetId}`)
     .then((response)=>{
       console.log(response);
       setPlanet(response.data)
@@ -78,7 +78,7 @@ const requestBody= {
   totalPrice: total,
  }
 
- axios.post("http://localhost:5005/api/stay", requestBody, {
+ axios.post(`${process.env.REACT_APP_API_URL}/api/stay`, requestBody, {
    headers: { 
      authorization: `Bearer ${authToken}`
    }
@@ -99,7 +99,13 @@ const requestBody= {
 
 
   return (
-      <div className="App">
+      <div className="App" style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        marginBottom: '5rem'
+      }}>
         <header className="App-header"> </header>
        
        <h3> Book Your Stay </h3>
@@ -140,13 +146,16 @@ const requestBody= {
      <div className="totalPrice">
 
      <p>Your Total</p>
-     <p> Price Per Night</p> { planet.pricePerNight }
-     <p> Number of Nights</p> { calculateNights(startDate, endDate) }
-     <p>Total</p> { total }
+     <p> Price Per Night</p>
+     <p>{ planet.pricePerNight }</p>
+     <p> Number of Nights</p>
+     <p>{ calculateNights(startDate, endDate) }</p> 
+     <p>Total</p>
+     <p>{ total }</p>
 
      </div>
 
-     <button type="button" onClick={ handleBookingSubmit }> Book { planet.name } </button>
+     <button type="button" onClick={ handleBookingSubmit } className="bookingButton"> Book { planet.name } </button>
 
 
 

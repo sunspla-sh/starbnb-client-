@@ -31,10 +31,20 @@
 .welcome {
     position: flex;
     text-align: center;
+    font-weight: bold;
 }
 
-.nav-item {
+.navbar-nav button{
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  background-color: white;
+}
 
+.navbar-nav button:hover{
+  background-color: lightgray;
 }
 
 /* .nav-item{

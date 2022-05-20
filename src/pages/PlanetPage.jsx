@@ -21,7 +21,7 @@ function PlanetPage() {
     useEffect(()=> {
         
   
-    axios.get(`http://localhost:5005/api/planet/${planetId}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/planet/${planetId}`)
       .then((response)=>{
         console.log(response);
         setPlanet(response.data)
@@ -38,7 +38,13 @@ function PlanetPage() {
 
     return (
 
-    <div className="App">
+    <div className="App" style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      textAlign: 'center',
+      margin: '0 5rem 5rem 5rem',
+    }}>
     <header className="App-header"/> 
          
      
@@ -86,11 +92,11 @@ function PlanetPage() {
             
             { user ? (
                 <Link to={`/booking/create/${planetId}`}>
-                <button type="button"> Book { planet.name } </button>
+                <button type="button" className="bookingButton"> Book { planet.name } </button>
                 </Link> 
             ) : (
                 <Link to={'/login'}>
-                <button type="button"> Login to book { planet.name } </button>
+                <button type="button" className="bookingButton"> Login to book { planet.name } </button>
                 </Link> 
             )}
            

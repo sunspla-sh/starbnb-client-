@@ -12,7 +12,7 @@ function HomePage() {
 
   useEffect(()=> {
 
-  axios.get('http://localhost:5005/api/planets')
+  axios.get(`${process.env.REACT_APP_API_URL}/api/planets`)
     .then((response)=>{
       console.log(response);
       setPlanets(response.data.planetsArray)
@@ -46,9 +46,13 @@ function HomePage() {
     </div>   
 
 
-   
+  <h3 style={{
+    margin: '2rem 0',
+    textAlign: 'center',
+    fontSize: '3rem'
+  }}> Featured Stays </h3>
   <div className="planetsContainer">
-    <h3> Featured Stayed </h3>
+    
 
     
      { planets.map((planet)=>{
