@@ -1,35 +1,22 @@
 
 .body{
-    font-family: "Montserrat";
+    font-family: 'roboto';
 }
 
+/* .planetCard-container{
+    border: 1px solid black;
+    border-radius: 30%;
+    width: 400px;
+    height: 400px;
+} */
 
-/* * {
+/* {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
-  }
+    padding-top: 20%;
+  }  */
 
-.signup-card-container {
-    border: 3px black;
-    max-width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 1rem;
-}  */
-.planetsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    
-}
-
-
-.staysContainer{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.staysCardImage{
+.planetCard-image{
     height: 200px; 
     background-size: cover;
     background-position: center;
@@ -40,14 +27,12 @@
 }
 
 
-.staysCard {
+.planetCard-container {
     border: .5px solid black;
     /* width: 100px;
     height: 100px; */
     /* max-width: 30%;  */
     /* position: flex center; */
-    font: "Montserrat";
-    font-weight: 600;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
@@ -56,15 +41,16 @@
     margin-bottom: 2rem;
     border-radius: 10px;
 
+    
 }   
 
-.staysCard a{
+.planetCard-container a{
    text-decoration: none;
    color: black;
 } 
 
 @media (min-width: 768px) {
-    .staysCard {
+    .planetCard-container {
         width: 20%;
     }
     }

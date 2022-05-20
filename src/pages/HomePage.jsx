@@ -1,25 +1,69 @@
-import logo from "../logo.svg";
-import "../App.css";
+
+import { useState, useEffect } from "react";
+import axios from "axios";
+import PlanetCard from "../components/PlanetCard/planetCard";
+import { Link } from "react-router-dom";
+
+
 
 function HomePage() {
+
+  const [planets, setPlanets ] = useState( [] );
+
+  useEffect(()=> {
+
+  axios.get('http://localhost:5005/api/planets')
+    .then((response)=>{
+      console.log(response);
+      setPlanets(response.data.planetsArray)
+    })
+
+    .catch((error)=>{
+      console.log(error);
+    })
+
+  }, [])
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header"/>
+      
+     <p> Home </p>
+
+   
+  <div className="planetsContainer">
+     { planets.map((planet)=>{
+       return (
+  
+      <div className="planetCard-container">
+        <Link to={`/planet/${planet._id}`}>
+        < PlanetCard planetData={ planet } /> 
+        </Link>
+        </div> 
+       )
+   
+     })}
+     </div>
+
+
+
+
+
+
     </div>
+
   );
+
+
+  
+
+
+
+
+
+
 }
 
 export default HomePage;
